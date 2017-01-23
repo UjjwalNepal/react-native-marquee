@@ -44,6 +44,12 @@ module.exports = React.createClass({
             list: this.props.children.split(''),
         };
     },
+    
+    componentWillUnmount(){
+      this.state.left1.stopAnimation();
+      this.state.left2.stopAnimation();
+      this.animateEnable = false;
+    },
     componentWillReceiveProps(nextProps) {
         if (this.props.children != nextProps.children) {
             this.animateEnable = false;
