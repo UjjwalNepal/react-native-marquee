@@ -10,29 +10,35 @@ npm install @remobile/react-native-marquee --save
 
 ### Example
 ```js
-'use strict';
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Dimensions,
+  Animated,
+  Easing,
+  TouchableHighlight
+} from 'react-native';
 
-var React = require('react');
-var ReactNative = require('react-native');
-var {
-    StyleSheet,
-    View,
-    Text,
-} = ReactNative;
+import Button from'@remobile/react-native-simple-button';
+import Marquee from '@remobile/react-native-marquee';
 
-var Button = require('@remobile/react-native-simple-button');
-var Marquee = require('@remobile/react-native-marquee');
+export default class MovingText extends Component{
 
-module.exports = React.createClass({
-    getInitialState() {
-        return {
-            text:  '暗示健康等会拉时间段ksajdfkasdjkfasjdkfasldfjasdlf暗示健康等会拉',
-            fontSize:  18,
-            width:  200,
-            lineHeight:  50,
-            color:  'red',
-        };
-    },
+  constructor(){
+    super()
+    this.state={
+      text:  '暗示健康等会拉时间段ksajdfkasdjkfasjdkfasldfjasdlf暗示健康等会拉',
+      fontSize:  18,
+      width:  200,
+      lineHeight:  50,
+      color:  'red',
+    }
+  }
+
     changeContent() {
         if (!this.contentFlag) {
             this.contentFlag = true;
@@ -45,7 +51,7 @@ module.exports = React.createClass({
                 text:  '暗示健康等会拉时间段ksajdfkasdjkfasjdkfasldfjasdlf暗示健康等会拉',
             });
         }
-    },
+    }
     changeStyle() {
         if (!this.styleFlag) {
             this.styleFlag = true;
@@ -64,7 +70,8 @@ module.exports = React.createClass({
                 color:  'red',
             });
         }
-    },
+    }
+
     render() {
         const {text, fontSize, color, width, lineHeight} = this.state;
         return (
@@ -77,7 +84,7 @@ module.exports = React.createClass({
             </View>
         );
     }
-});
+}
 
 
 var styles = StyleSheet.create({
@@ -99,7 +106,7 @@ var styles = StyleSheet.create({
         overflow: 'hidden',
     },
 });
-```
+
 
 ## Screencasts
 
